@@ -22,3 +22,15 @@
 3. 设置服务中心配置信息
 
 4. 在启动类上添加@EnableEurekaClient注解
+
+
+## Feign简介 
+　　Feign是Netflix开发的声明式、模板化的HTTP客户端，其灵感来自Retrofit、JAXRS-2.0以及WebSocket。Feign可帮助我们更加便捷、优雅地调用HTTP API。
+
+## Zuul
+
+
+
+- http://localhost:9005/client1/user/getUser/2
+
+- http://localhost:9005/client1/order/count/2

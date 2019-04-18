@@ -4,18 +4,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.my</groupId>
-	    <artifactId>speedAngel-Cloud</artifactId>
-	    <version>0.0.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<artifactId>speedAngel-Cloud</artifactId>
+		<version>0.0.1</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
-	<artifactId>Eureka-Client1</artifactId>
+	<groupId>com.my</groupId>
+	<artifactId>Zuul-Demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Eureka-Client1</name>
-	<description>Eureka-Client1</description>
+	<name>Zuul-Demo</name>
+	<description>Zuul-Demo</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -23,7 +24,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-        <dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
@@ -31,30 +32,31 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
-	
 	</dependencies>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<build>
-		<finalName>${project.artifactId}</finalName>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<delimiters>
-						<delimit>$</delimit>
-					</delimiters>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

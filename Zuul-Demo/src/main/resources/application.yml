@@ -1,0 +1,20 @@
+server:
+  port: 9005
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: Zuul-Demo
+
+zuul:
+  routes:
+    client:
+      path: /client/**
+      serviceId: Eureka-Client
+    client1:
+      path: /client1/**
+      serviceId: Eureka-Client1  
+    

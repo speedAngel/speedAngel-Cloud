@@ -8,6 +8,11 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #关闭保护机制，以确保注册中心将不可用的实例正确剔除
+  server:
+    enable-self-preservation: false
+      #（代表是5秒，单位是毫秒,清理失效服务的间隔 ）
+    eviction-interval-timer-in-ms: 5000
 spring:
   application:
     name: Eureka-Server
